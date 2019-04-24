@@ -1,0 +1,161 @@
+/* indeholder hele kalenderen */
+#grid-ydre {
+    border: 1px solid red;
+    width: 1024px;
+    height: 768px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: lightgrey;
+    display: grid;
+    grid-template-areas:
+    /*
+            "overskrifter overskrifter overskrifter overskrifter overskrifter overskrifter overskrifter overskrifter overskrifter overskrifter overskrifter"
+            "tidspunkter . . . . . . . . . brugere";
+     */
+            ". koekken stue multirum vaerksted legerum krogen legeplads1 legeplads2 pause ."
+            "ni . . . . . . . . . admin"
+            "ti . . . . . . . . . blaeksprutte"
+            "elleve . . . . . . . . . paedagog"
+            "tolv . . . . . . . . . ."
+            "tolv-tredive . . . . . . . . . ."
+            "tretten . . . . . . . . . ."
+            "fjorten . . . . . . . . . .";
+    gap: 5px;
+}
+
+/* overskrifterne */
+#grid-indre-overskrifter {
+    background-color: grey;
+    height: 30px;
+    grid-area: overskrifter;
+    /*
+    padding: 10px;
+    padding-top: 20px;
+    display: grid;
+    grid-template-areas:
+            ". koekken stue multirum vaerksted legerum krogen legeplads1 legeplads2 pause ."
+            "ni . . . . . . . . . admin"
+            "ti . . . . . . . . . blaeksprutte"
+            "elleve . . . . . . . . . paedagog";
+    gap: 5px;
+     */
+}
+
+/* tidspunkterne */
+#grid-indre-tidspunkter {
+    background-color: grey;
+    height: 700px;
+    grid-area: tidspunkter;
+    /*
+    padding: 10px;
+    display: grid;
+    grid-template-areas:
+            "ni"
+            "ti"
+            "elleve"
+            "."
+            "."
+            "."
+            ".";
+    gap: 5px;
+     */
+}
+
+/* brugerne */
+#grid-indre-brugere {
+    background-color: grey;
+    height: 700px;
+    grid-area: brugere;
+    /*
+    padding: 10px;
+    display: grid;
+    grid-template-areas:
+            "admin"
+            "blaeksprutte"
+            "paedagog"
+            "."
+            "."
+            "."
+            ".";
+    gap: 5px;
+     */
+}
+
+/* overskrifter */
+#grid-koekken {
+    grid-area: koekken;
+}
+
+#grid-stue {
+    grid-area: stue;
+}
+
+#grid-multirum {
+    grid-area: multirum;
+}
+
+#grid-vaerksted {
+    grid-area: vaerksted;
+}
+
+#grid-legerum {
+    grid-area: legerum;
+}
+
+#grid-krogen {
+    grid-area: krogen;
+}
+
+#grid-legeplads1 {
+    grid-area: legeplads1;
+}
+
+#grid-legeplads2 {
+    grid-area: legeplads2;
+}
+
+#grid-pause {
+    grid-area: pause;
+}
+
+/* tidspunkter */
+#grid-ni {
+    grid-area: ni;
+}
+
+#grid-ti {
+    grid-area: ti;
+}
+
+#grid-elleve {
+    grid-area: elleve;
+}
+
+#grid-tolv {
+    grid-area: tolv;
+}
+
+#grid-tolv-tredive {
+    grid-area: tolv-tredive;
+}
+
+#grid-tretten {
+    grid-area: tretten;
+}
+
+#grid-fjorten {
+    grid-area: fjorten;
+}
+
+/* brugere */
+#grid-admin {
+    grid-area: admin;
+}
+
+#grid-blaeksprutte {
+    grid-area: blaeksprutte;
+}
+
+#grid-paedagog {
+    grid-area: paedagog;
+}
