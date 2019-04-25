@@ -3,21 +3,21 @@
     border: 1px solid red;
     width: 1024px;
     height: 768px;
-    margin: 30px auto;
-    padding: 10px;
+    margin: 0px auto;
+    padding: 0px;
     background-color: lightgrey;
     display: grid;
     grid-template-areas:
             "aendre-plan stue multirum vaerksted legerum krogen legeplads1 legeplads2 pause"
             "ni lokale1-tidspunkt1 lokale2-tidspunkt1 lokale3-tidspunkt1 lokale4-tidspunkt1 lokale5-tidspunkt1 lokale6-tidspunkt1 lokale7-tidspunkt1 lokale8-tidspunkt1"
-            "ti lokale1-tidspunkt2 lokale2-tidspunkt2 lokale3-tidspunkt2 lokale4-tidspunkt2 lokale5-tidspunkt2 lokale6-tidspunkt2 lokale7-tidspunkt2 lokale8-tidspunkt2"
+            "ti lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2"
             "elleve lokale1-tidspunkt3 lokale2-tidspunkt3 lokale3-tidspunkt3 lokale4-tidspunkt3 lokale5-tidspunkt3 lokale6-tidspunkt3 lokale7-tidspunkt3 lokale8-tidspunkt3"
             "tolv lokale1-tidspunkt4 lokale2-tidspunkt4 lokale3-tidspunkt4 lokale4-tidspunkt4 lokale5-tidspunkt4 lokale6-tidspunkt4 lokale7-tidspunkt4 lokale8-tidspunkt4"
             "tolv-tredive lokale1-tidspunkt5 lokale2-tidspunkt5 lokale3-tidspunkt5 lokale4-tidspunkt5 lokale5-tidspunkt5 lokale6-tidspunkt5 lokale7-tidspunkt5 lokale8-tidspunkt5"
             "tretten lokale1-tidspunkt6 lokale2-tidspunkt6 lokale3-tidspunkt6 lokale4-tidspunkt6 lokale5-tidspunkt6 lokale6-tidspunkt6 lokale7-tidspunkt6 lokale8-tidspunkt6"
             "fjorten lokale1-tidspunkt7 lokale2-tidspunkt7 lokale3-tidspunkt7 lokale4-tidspunkt7 lokale5-tidspunkt7 lokale6-tidspunkt7 lokale7-tidspunkt7 lokale8-tidspunkt7"
-            "paedagog1 paedagog2 paedagog3 paedagog4 paedagog5 paedagog6 paedagog7 paedagog8 ."
-            "paedagog9 paedagog10 . . . . . . .";
+            "fokuspunkter fokuspunkter fokuspunkter paedagog1 paedagog2 paedagog3 paedagog4 paedagog5 ."
+            "fokuspunkter fokuspunkter fokuspunkter paedagog6 paedagog7 paedagog8 paedagog9 paedagog10 .";
 }
 
 /* overskrifter */
@@ -143,7 +143,7 @@
     text-align: center;
 }
 
-/* lokale og tidspunkt- felter */
+/* lokale og tidspunkt- felter for række 1 */
 .felter {
     background-color: white;
 }
@@ -182,35 +182,8 @@
 
 /* lokale og tidspunkt- felter for række 2 */
 #grid-lokale1-tidspunkt2 {
+    text-align: center;
     grid-area: lokale1-tidspunkt2;
-}
-
-#grid-lokale2-tidspunkt2 {
-    grid-area: lokale2-tidspunkt2;
-}
-
-#grid-lokale3-tidspunkt2 {
-    grid-area: lokale3-tidspunkt2;
-}
-
-#grid-lokale4-tidspunkt2 {
-    grid-area: lokale4-tidspunkt2;
-}
-
-#grid-lokale5-tidspunkt2 {
-    grid-area: lokale5-tidspunkt2;
-}
-
-#grid-lokale6-tidspunkt2 {
-    grid-area: lokale6-tidspunkt2;
-}
-
-#grid-lokale7-tidspunkt2 {
-    grid-area: lokale7-tidspunkt2;
-}
-
-#grid-lokale8-tidspunkt2 {
-    grid-area: lokale8-tidspunkt2;
 }
 
 /* lokale og tidspunkt- felter for række 3 */
@@ -376,4 +349,20 @@
 
 #grid-lokale8-tidspunkt7 {
     grid-area: lokale8-tidspunkt7;
+}
+
+/* fokus-punkter */
+#grid-fokuspunkter {
+    grid-area: fokuspunkter;
+}
+
+#grid-fokuspunkter h3 {
+    text-align: center;
+}
+
+#grid-fokuspunkter p{
+    overflow: auto;
+    width:330px;
+    height: 90px;
+    margin-left: 20px;
 }
