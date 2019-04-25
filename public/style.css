@@ -16,8 +16,9 @@
             "tolv-tredive lokale1-tidspunkt5 lokale2-tidspunkt5 lokale3-tidspunkt5 lokale4-tidspunkt5 lokale5-tidspunkt5 lokale6-tidspunkt5 lokale7-tidspunkt5 lokale8-tidspunkt5"
             "tretten lokale1-tidspunkt6 lokale2-tidspunkt6 lokale3-tidspunkt6 lokale4-tidspunkt6 lokale5-tidspunkt6 lokale6-tidspunkt6 lokale7-tidspunkt6 lokale8-tidspunkt6"
             "fjorten lokale1-tidspunkt7 lokale2-tidspunkt7 lokale3-tidspunkt7 lokale4-tidspunkt7 lokale5-tidspunkt7 lokale6-tidspunkt7 lokale7-tidspunkt7 lokale8-tidspunkt7"
-            "fokuspunkter fokuspunkter fokuspunkter paedagog1 paedagog2 paedagog3 paedagog4 paedagog5 ."
-            "fokuspunkter fokuspunkter fokuspunkter paedagog6 paedagog7 paedagog8 paedagog9 paedagog10 .";
+            "fokuspunkter fokuspunkter fokuspunkter fokuspunkter paedagog1 paedagog2 paedagog3 paedagog4 paedagog5"
+            "fokuspunkter fokuspunkter fokuspunkter fokuspunkter paedagog6 paedagog7 paedagog8 paedagog9 paedagog10";
+    grid-auto-columns: 1fr; /* gør at kolonnerne får den samme bredde */
 }
 
 /* overskrifter */
@@ -25,10 +26,6 @@
     grid-area: aendre-plan;
     background-color: black;
     color: white;
-}
-
-#grid-koekken {
-    grid-area: koekken;
 }
 
 #grid-stue {
@@ -362,7 +359,7 @@
 
 #grid-fokuspunkter p{
     overflow: auto;
-    width:330px;
-    height: 90px;
+    width:420px;
+    height: 130px;
     margin-left: 20px;
 }
