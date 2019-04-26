@@ -11,22 +11,21 @@
             "fokuspunkter fokuspunkter fokuspunkter fokuspunkter paedagog1 paedagog2 paedagog3 paedagog4 paedagog5"
             "fokuspunkter fokuspunkter fokuspunkter fokuspunkter paedagog6 paedagog7 paedagog8 paedagog9 paedagog10"
             "mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum"
-            "aendre-plan stue multirum vaerksted legerum krogen legeplads1 legeplads2 pause"
+            "dags-plan stue multirum vaerksted legerum krogen legeplads1 legeplads2 pause"
             "ni lokale1-tidspunkt1 lokale2-tidspunkt1 lokale3-tidspunkt1 lokale4-tidspunkt1 lokale5-tidspunkt1 lokale6-tidspunkt1 lokale7-tidspunkt1 lokale8-tidspunkt1"
-            "ti lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2"
+            "ti køkken1 køkken2 køkken3 morgensamling1 morgensamling1 badeværelse1 badeværelse1 badeværelse1"
             "elleve lokale1-tidspunkt3 lokale2-tidspunkt3 lokale3-tidspunkt3 lokale4-tidspunkt3 lokale5-tidspunkt3 lokale6-tidspunkt3 lokale7-tidspunkt3 lokale8-tidspunkt3"
             "tolv lokale1-tidspunkt4 lokale2-tidspunkt4 lokale3-tidspunkt4 lokale4-tidspunkt4 lokale5-tidspunkt4 lokale6-tidspunkt4 lokale7-tidspunkt4 lokale8-tidspunkt4"
             "tolv-tredive lokale1-tidspunkt5 lokale2-tidspunkt5 lokale3-tidspunkt5 lokale4-tidspunkt5 lokale5-tidspunkt5 lokale6-tidspunkt5 lokale7-tidspunkt5 lokale8-tidspunkt5"
             "tretten lokale1-tidspunkt6 lokale2-tidspunkt6 lokale3-tidspunkt6 lokale4-tidspunkt6 lokale5-tidspunkt6 lokale6-tidspunkt6 lokale7-tidspunkt6 lokale8-tidspunkt6"
             "fjorten lokale1-tidspunkt7 lokale2-tidspunkt7 lokale3-tidspunkt7 lokale4-tidspunkt7 lokale5-tidspunkt7 lokale6-tidspunkt7 lokale7-tidspunkt7 lokale8-tidspunkt7";
     grid-auto-columns: 1fr; /* gør at kolonnerne får den samme bredde */
+    grid-template-rows: 1fr 1fr 0.5fr 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* overskrifter */
-#grid-aendre-plan {
-    grid-area: aendre-plan;
-    background-color: black;
-    color: white;
+#grid-dags-plan {
+    grid-area: dags-plan;
 }
 
 #grid-stue {
@@ -138,6 +137,10 @@
 /* viser grid lines */
 .punkter-med-kant {
     border: 1px black solid;
+}
+
+/* centrerer tekst */
+.center {
     text-align: center;
 }
 
@@ -179,9 +182,36 @@
 }
 
 /* lokale og tidspunkt- felter for række 2 */
-#grid-lokale1-tidspunkt2 {
+#grid-morgensamling-tidspunkt2 {
+    /*text-align: center;*/
+    grid-area: morgensamling-tidspunkt2;
+    grid-template-columns: 1fr 1fr 1fr 2fr 3fr;
+    grid-template-areas: "køkken1 køkken2 køkken3 morgensamling1 morgensamling1 badeværelse1 badeværelse1 badeværelse1";
+}
+#grid-køkken1 {
+    grid-area: køkken1;
     text-align: center;
-    grid-area: lokale1-tidspunkt2;
+}
+
+#grid-køkken2 {
+    grid-area: køkken2;
+}
+
+#grid-køkken3 {
+    grid-area: køkken3;
+}
+
+#grid-morgensamling1 {
+    grid-area: morgensamling1;
+}
+
+#grid-badeværelse1 {
+    grid-area: badeværelse1;
+
+}
+
+#grid-køkken1, #grid-morgensamling1, #grid-badeværelse1 {
+    font-weight: bold;
 }
 
 /* lokale og tidspunkt- felter for række 3 */
@@ -361,7 +391,7 @@
 #grid-fokuspunkter p{
     overflow: auto;
     width:420px;
-    height: 130px;
+    height: 75px;
     margin-left: 20px;
 }
 
@@ -369,4 +399,11 @@
 #mellemrum {
     grid-area: mellemrum;
     border: 1px black solid;
+    background-color: black;
+}
+
+/* pædagog inde i felterne */
+.paedagog1, .paedagog2, .paedagog3 {
+    text-align: left;
+    width:100%;
 }
