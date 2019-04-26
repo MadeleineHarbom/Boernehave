@@ -13,7 +13,7 @@
             "mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum mellemrum"
             "aendre-plan stue multirum vaerksted legerum krogen legeplads1 legeplads2 pause"
             "ni lokale1-tidspunkt1 lokale2-tidspunkt1 lokale3-tidspunkt1 lokale4-tidspunkt1 lokale5-tidspunkt1 lokale6-tidspunkt1 lokale7-tidspunkt1 lokale8-tidspunkt1"
-            "ti lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2 lokale1-tidspunkt2"
+            "ti morgensamling-tidspunkt2 morgensamling-tidspunkt2 morgensamling-tidspunkt2 morgensamling-tidspunkt2 morgensamling-tidspunkt2 morgensamling-tidspunkt2 morgensamling-tidspunkt2 morgensamling-tidspunkt2"
             "elleve lokale1-tidspunkt3 lokale2-tidspunkt3 lokale3-tidspunkt3 lokale4-tidspunkt3 lokale5-tidspunkt3 lokale6-tidspunkt3 lokale7-tidspunkt3 lokale8-tidspunkt3"
             "tolv lokale1-tidspunkt4 lokale2-tidspunkt4 lokale3-tidspunkt4 lokale4-tidspunkt4 lokale5-tidspunkt4 lokale6-tidspunkt4 lokale7-tidspunkt4 lokale8-tidspunkt4"
             "tolv-tredive lokale1-tidspunkt5 lokale2-tidspunkt5 lokale3-tidspunkt5 lokale4-tidspunkt5 lokale5-tidspunkt5 lokale6-tidspunkt5 lokale7-tidspunkt5 lokale8-tidspunkt5"
@@ -179,9 +179,9 @@
 }
 
 /* lokale og tidspunkt- felter for række 2 */
-#grid-lokale1-tidspunkt2 {
+#grid-morgensamling-tidspunkt2 {
     text-align: center;
-    grid-area: lokale1-tidspunkt2;
+    grid-area: morgensamling-tidspunkt2;
 }
 
 /* lokale og tidspunkt- felter for række 3 */
