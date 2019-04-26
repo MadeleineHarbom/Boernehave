@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Præstevangen børnehaven</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- kalenderen -->
+<div id="grid-ydre">
+    <!-- overskrifter -->
+    <div id="grid-aendre-plan" class="punkter-med-kant">Ændre plan</div>
+    <div id="grid-stue" class="punkter-med-kant">Stue</div>
+    <div id="grid-multirum" class="punkter-med-kant">Multirum</div>
+    <div id="grid-vaerksted" class="punkter-med-kant">Værksted</div>
+    <div id="grid-legerum" class="punkter-med-kant">Legerum</div>
+    <div id="grid-krogen" class="punkter-med-kant">Krogen</div>
+    <div id="grid-legeplads1" class="punkter-med-kant">Legeplads 1</div>
+    <div id="grid-legeplads2" class="punkter-med-kant">Legeplads 2</div>
+    <div id="grid-pause" class="punkter-med-kant"> Pause</div>
+
+    <!-- tidspunkter -->
+    <div id="grid-ni" class="punkter-med-kant">09:00 <br/>&nbsp;&nbsp;&nbsp;-<br/> 10:30</div>
+    <div id="grid-ti" class="punkter-med-kant">10:30 <br/>&nbsp;&nbsp;&nbsp;-<br/>11:00</div>
+    <div id="grid-elleve" class="punkter-med-kant">11:00 <br/>&nbsp;&nbsp;&nbsp;-<br/> 12:00</div>
+    <div id="grid-tolv" class="punkter-med-kant">12:00 <br/>&nbsp;&nbsp;&nbsp;-<br/> 12:30</div>
+    <div id="grid-tolv-tredive" class="punkter-med-kant">12:30 <br/>&nbsp;&nbsp;&nbsp;-<br/> 13:00</div>
+    <div id="grid-tretten" class="punkter-med-kant">13:00 <br/>&nbsp;&nbsp;&nbsp;-<br/> 14:00</div>
+    <div id="grid-fjorten" class="punkter-med-kant">14:00 <br/>&nbsp;&nbsp;&nbsp;-<br/> 16:00</div>
+
+    <!-- pædagoger -->
+    <div id="grid-paedagog1" onclick="placerepaedagog(this)" class="punkter-med-kant paedagoger">
+        <span id="navn">Hans Jensen</span> <br/>
+        <span id="initialer">(HJ)</span>
+    </div>
+    <div id="grid-paedagog2" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog3" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog4" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog5" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog6" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog7" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog8" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog9" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+    <div id="grid-paedagog10" class="punkter-med-kant paedagoger">Hans Jensen <br/>(HJ)</div>
+
+    <!-- lokaler og tidspunkt række 1 -->
+    <div id="grid-lokale1-tidspunkt1" class="punkter-med-kant felter" onclick="paedagogplaceret(this)">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2">(KS)</span> <br/>
+        <span class="paedagog3">(SM)</span>
+    </div>
+    <div id="grid-lokale2-tidspunkt1" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale3-tidspunkt1" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale4-tidspunkt1" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale5-tidspunkt1" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale6-tidspunkt1" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale7-tidspunkt1" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale8-tidspunkt1" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+
+    <!-- lokaler og tidspunkt række 2 -->
+    <div id="grid-lokale1-tidspunkt2"><br/><br/>Morgensamling</div>
+
+    <!-- lokaler og tidspunkt række 3 -->
+    <div id="grid-lokale1-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale2-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale3-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale4-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale5-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale6-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale7-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale8-tidspunkt3" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+
+    <!-- lokaler og tidspunkt række 4 -->
+    <div id="grid-lokale1-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale2-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale3-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale4-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale5-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale6-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale7-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale8-tidspunkt4" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+
+    <!-- lokaler og tidspunkt række 5 -->
+    <div id="grid-lokale1-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale2-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale3-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale4-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale5-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale6-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale7-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale8-tidspunkt5" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+
+    <!-- lokaler og tidspunkt række 6 -->
+    <div id="grid-lokale1-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale2-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale3-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale4-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale5-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale6-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale7-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale8-tidspunkt6" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+
+    <!-- lokaler og tidspunkt række 7 -->
+    <div id="grid-lokale1-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale2-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale3-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale4-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale5-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale6-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale7-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+    <div id="grid-lokale8-tidspunkt7" class="punkter-med-kant felter">
+        <span class="paedagog1"></span> <br/>
+        <span class="paedagog2"></span> <br/>
+        <span class="paedagog3"></span>
+    </div>
+
+    <!-- fokus-punkter -->
+    <div id="grid-fokuspunkter">
+        <h3>Fokus punkter</h3>
+        <p>
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+            Her kommer der til at stå nogle fokus punkter...
+        </p>
+    </div>
+
+    <!-- tomt mellemrum mellem lokalerne og pædagogboksene -->
+    <div id="mellemrum"> <br/></div>
+</div>
+
+</body>
+</html>
