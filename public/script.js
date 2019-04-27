@@ -102,6 +102,16 @@ function placerepaedagog(element) {
 }
 
 function clicktidspunkt(element) {
+    //insert start
+    let fjernKnap = document.createElement("button");
+    fjernKnap.innerHTML = "Fjern";
+    let divClear = document.createElement("div");
+    divClear.style.clear = "both";
+    divClear.style.height = "0 px";
+    fjernKnap.style.float = "right";
+    fjernKnap.onclick = function() {fjernPaedagog(this.parentElement, this)};
+    //insert end
+
     console.log(element);
     let paedagog1 = element.children[0];
     let paedagog2 = element.children[2];
@@ -111,16 +121,23 @@ function clicktidspunkt(element) {
     console.log(paedagog3);
 
     if(paedagog1.innerHTML == "") {
-        paedagog1.innerHTML = initialer;
+        paedagog1.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        paedagog1.appendChild(fjernKnap);
+        paedagog1.appendChild(divClear);
 
     } else if(paedagog2.innerHTML == "") {
-        paedagog2.innerHTML = initialer;
+        paedagog2.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        paedagog2.appendChild(fjernKnap);
+        paedagog2.appendChild(divClear);
 
     } else if(paedagog3.innerHTML == "") {
-        paedagog3.innerHTML = initialer;
+        paedagog3.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        paedagog3.appendChild(fjernKnap);
     }
 
     initialer = "";
+    removeSelection(selectedpaedagog);
+    selectedpaedagog = null;
 
 }
 
@@ -128,8 +145,11 @@ function removeSelection(paeda) {
     let index = workers.findIndex((elem) => { return elem === paeda});
     let fieldname = "grid-paedagog" + (index+1);
     document.getElementById(fieldname).classList.remove('paedaclicked');
-    let classname = "peda" + (index+1)
+    let classname = "peda" + (index+1);
     document.getElementById(fieldname).classList.add(classname);
     selectedpaedagog = null;
 
+}
+function fjernPaedagog(parent, element) {
+    parent.parentElement.removeChild(parent);
 }
