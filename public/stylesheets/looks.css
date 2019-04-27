@@ -15,8 +15,9 @@ a {
 }
 
 .paedaclicked {
-  opacity: 20%;
-  color: hotpink;
+  opacity: 80%;
+  background-color: gray;
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 190, .75);
 }
 
 .paedanoshow {
