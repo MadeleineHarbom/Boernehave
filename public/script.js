@@ -102,6 +102,10 @@ function placerepaedagog(element) {
 }
 
 function clicktidspunkt(element) {
+    if (selectedpaedagog == null) {
+        console.log("Select a dude");
+        return;
+    }
     //insert start
     let fjernKnap = document.createElement("button");
     fjernKnap.innerHTML = "Fjern";
@@ -112,27 +116,31 @@ function clicktidspunkt(element) {
     fjernKnap.onclick = function() {fjernPaedagog(this.parentElement, this)};
     //insert end
 
-    console.log(element);
     let paedagog1 = element.children[0];
     let paedagog2 = element.children[2];
     let paedagog3 = element.children[4];
-    console.log(paedagog1);
-    console.log(paedagog2);
-    console.log(paedagog3);
+
+    let classname =findclassname(selectedpaedagog);
 
     if(paedagog1.innerHTML == "") {
         paedagog1.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
         paedagog1.appendChild(fjernKnap);
         paedagog1.appendChild(divClear);
+        paedagog1.classList.add(classname);
+
+
+
 
     } else if(paedagog2.innerHTML == "") {
         paedagog2.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
         paedagog2.appendChild(fjernKnap);
         paedagog2.appendChild(divClear);
+        paedagog2.classList.add(classname);
 
     } else if(paedagog3.innerHTML == "") {
         paedagog3.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
         paedagog3.appendChild(fjernKnap);
+        paedagog3.classList.add(classname);
     }
 
     initialer = "";
@@ -151,5 +159,14 @@ function removeSelection(paeda) {
 
 }
 function fjernPaedagog(parent, element) {
+    console.log("Deleting button");
     parent.parentElement.removeChild(parent);
+}
+
+function findclassname(paeda) {
+    let index = workers.findIndex((elem) => { return elem === paeda});
+    let fieldname = "grid-paedagog" + (index+1);
+    document.getElementById(fieldname).classList.remove('paedaclicked');
+    let classname = "peda" + (index+1);
+    return classname;
 }
