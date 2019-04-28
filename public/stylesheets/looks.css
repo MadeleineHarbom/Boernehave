@@ -6,6 +6,62 @@ a {
   color: #00B7FF;
 }
 
-.clicked {
+.bricknormal {
+  color: blue;
+}
+
+.brickclicked {
+  color: red;
+}
+
+.paedaclicked {
+  opacity: 80%;
+  background-color: gray;
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 190, .75);
+}
+
+.paedanoshow {
+  color: gray;
+}
+
+.peda1{
+  background-color: #00B7FF;
+}
+
+.peda2{
   background-color: orange;
+}
+
+.peda3 {
+  background-color: orangered;
+}
+
+
+.peda4 {
+  background-color: blueviolet;
+}
+
+.peda5 {
+  background-color: yellow;
+}
+
+
+.peda6 {
+  background-color: deeppink;
+}
+
+.peda7 {
+  background-color: chartreuse;
+}
+
+.peda8 {
+  background-color: darksalmon;
+}
+
+.peda9 {
+  background-color: olivedrab;
+}
+
+.peda10 {
+  background-color: tomato;
 }
