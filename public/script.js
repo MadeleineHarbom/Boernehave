@@ -2,6 +2,8 @@ let initialer = "";
 
 let selectedpaedagog;
 
+let peagagogfelt;
+
 let workers = new Array(10);
 
 class Paedagog {
@@ -117,10 +119,11 @@ function clicktidspunkt(element) {
     //insert end
 
     let paedagog1 = element.children[0];
-    let paedagog2 = element.children[2];
-    let paedagog3 = element.children[4];
+    let paedagog2 = element.children[1];
+    let paedagog3 = element.children[2];
 
     let classname =findclassname(selectedpaedagog);
+
 
     if(paedagog1.innerHTML == "") {
         paedagog1.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -142,10 +145,11 @@ function clicktidspunkt(element) {
         paedagog3.appendChild(fjernKnap);
         paedagog3.classList.add(classname);
     }
+    //check paa at pade ikke allereden er der
 
-    initialer = "";
-    removeSelection(selectedpaedagog);
-    selectedpaedagog = null;
+    //initialer = "";
+    //removeSelection(selectedpaedagog);
+    //selectedpaedagog = null;
 
 }
 
@@ -155,12 +159,19 @@ function removeSelection(paeda) {
     document.getElementById(fieldname).classList.remove('paedaclicked');
     let classname = "peda" + (index+1);
     document.getElementById(fieldname).classList.add(classname);
+    //set initialer til ""
     selectedpaedagog = null;
 
 }
 function fjernPaedagog(parent, element) {
     console.log("Deleting button");
-    parent.parentElement.removeChild(parent);
+    if (selectedpaedagog != null) {
+        initialer = "";
+        selectedpaedagog = null;
+    }
+    parent.removeChild(element);
+    parent.innerHTML = "";
+
 }
 
 function findclassname(paeda) {

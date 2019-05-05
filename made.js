@@ -1,10 +1,8 @@
-let colors = ['#4d4dff', '#ff3333', '#33cc33', '#ffff00', '#ff80ff', '#ad33ff', '#4dffdb'];
-let cnames = ['blue', 'red', 'green', 'yellow', ' pink', 'purle', 'turkiqiuowper']; //just notes
+let initialer = "";
 
-//vaelge tidspunkt
-let lokale = "lokale2";
-let tidspunkt = "tidspunkt1";
-//lokale2-tidspunkt1
+let selectedpaedagog;
+
+let peagagogfelt;
 
 let workers = new Array(10);
 
@@ -21,66 +19,25 @@ class Paedagog {
         return this.initials
     }
 }
-
-function clicktidspunkt(element) {
-    let paedagog1 = element.children[0];
-    let paedagog2 = element.children[2];
-    let paedagog3 = element.children[4];
-
-    if(paedagog1.innerHTML == "") {
-        paedagog1.innerHTML = initialer;
-
-    } else if(paedagog2.innerHTML == "") {
-        paedagog2.innerHTML = initialer;
-
-    } else if(paedagog3.innerHTML == "") {
-        paedagog3.innerHTML = initialer;
-    }
-
-    initialer = "";
-}
-
-
-
-function highlightLokale(lokal, tidspunkt) {
-    let fieldname = "grid-" + lokal + "-" + tidspunkt;
-    console.log(fieldname);
-    console.log("lokale2-tidspunkt1");
-    let field = document.getElementById(fieldname);
-    console.log(field);
-    console.log(field);
-    field.classList.add("clicked");
-}
-highlightLokale(lokale, tidspunkt);
-
-let paeda;
-
-function highlightPaeda(paedaNummer) {
-    let fieldname = "grid-paedagog" + paedaNummer;
-    console.log(fieldname);
-    let field = document.getElementById(fieldname);
-    console.log(field);
-    field.classList.add("clicked");
-}
-
-highlightPaeda(1);
-
-function highligtSaveTidPade() {
-    
-}
-
-
-
-
 function addPaedagog(paedagog) {
     for (var q = 0; q < workers.length; q++) {
-        if(workers[q]== null) {//behoever jeg citationstegn
-            console.log(paedagog.name + "added");
+
+        if(workers[q]== null) {//grid-paedagog3
+            let fieldname = "grid-paedagog" + (q+1);
+            console.log(fieldname);
+            let field = document.getElementById(fieldname);
+            console.log(field);
             workers[q] = paedagog;
+            console.log(paedagog.getName() + " added");
+            field.getElementsByClassName('navn')[0].innerText = paedagog.getInitials();
+            field.getElementsByClassName('initialer')[0].innerText = paedagog.getName();
+            let classname = "peda" + (q+1);
+            field.classList.add(classname);
             return paedagog;
         }
     }
-    console.log("Never added")
+    console.log("No room for " + paedagog.getName() +"! Go home and have a nap :)");
+
 }
 
 function dummyData() {
@@ -91,47 +48,135 @@ function dummyData() {
     addPaedagog(p);
     p = new Paedagog("Patrick", "PHR");
     addPaedagog(p);
-    p = new Paedagog("Madeleine", "MEKHR");
+    p = new Paedagog("Steffen", "SHR");
     console.log(addPaedagog(p));
-    p = new Paedagog("Douglas", "DHR");
+    p = new Paedagog("Bertil", "BNA");
     addPaedagog(p);
-    p = new Paedagog("Patrick", "PHR");
+    p = new Paedagog("Thomas", "TR");
     addPaedagog(p);
-    p = new Paedagog("Madeleine", "MEKHR");
+    p = new Paedagog("Maja", "MJ");
     console.log(addPaedagog(p));
-    p = new Paedagog("Douglas", "DHR");
+    p = new Paedagog("Camilla", "CFU");
     addPaedagog(p);
-    p = new Paedagog("Patrick", "PHR");
+    p = new Paedagog("Ann", "ABM");
     addPaedagog(p);
-    p = new Paedagog("Madeleine", "MEKHR");
+    p = new Paedagog("Nancy", "NS");
     console.log(addPaedagog(p));
-    p = new Paedagog("Douglas", "DHR");
+    p = new Paedagog("Fry", "PJF");
     addPaedagog(p);
-    p = new Paedagog("Patrick", "PHR");
+    p = new Paedagog("Leela", "TR");
     addPaedagog(p);
-
-
 }
+
 dummyData();
 
-
-//classes
-let availabletimes = [9, 10, 11, 12, 13, 14, 15, 16];
-
-class Lokale{
-    constructor(name) {
-        this.name = name;
-        this.number = counter;
-        counter++;
+//onclick for paedagoger
+function placerepaedagog(element) {
+    let number = /\d+/.exec(element.id);
+    let index = number - 1;
+    if (selectedpaedagog == workers[index]) {
+        console.log("Already selected");
+        removeSelection(selectedpaedagog);
+        console.log("KLASS REMOVED");
     }
-    getName() {
-        return this.name;
+    else if (selectedpaedagog != null) {
+        removeSelection(selectedpaedagog);
+        selectedpaedagog = workers[index];
+        let classname = "peda"+(number);
+        element.classList.add('paedaclicked');
+        element.classList.remove(classname);
     }
+    else {
+        selectedpaedagog = workers[index];
+        let classname = "peda"+(number);
+        element.classList.add('paedaclicked');
+        element.classList.remove(classname);
+    }
+    //TODO slippery when wet
 
-    getNumber() {
-        return this.number;
-    }
+
+
+    //REGEX
+    initialer = element.children[2].innerHTML; //TODO delete
+
 
 
 }
 
+function clicktidspunkt(element) {
+    if (selectedpaedagog == null) {
+        console.log("Select a dude");
+        return;
+    }
+    //insert start
+    let fjernKnap = document.createElement("button");
+    fjernKnap.innerHTML = "Fjern";
+    let divClear = document.createElement("div");
+    divClear.style.clear = "both";
+    divClear.style.height = "0 px";
+    fjernKnap.style.float = "right";
+    fjernKnap.onclick = function() {fjernPaedagog(this.parentElement, this)};
+    //insert end
+
+    let paedagog1 = element.children[0];
+    let paedagog2 = element.children[1];
+    let paedagog3 = element.children[2];
+
+    let classname =findclassname(selectedpaedagog);
+
+    if(paedagog1.innerHTML == "") {
+        paedagog1.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        paedagog1.appendChild(fjernKnap);
+        paedagog1.appendChild(divClear);
+        paedagog1.classList.add(classname);
+
+
+
+
+    } else if(paedagog2.innerHTML == "") {
+        paedagog2.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        paedagog2.appendChild(fjernKnap);
+        paedagog2.appendChild(divClear);
+        paedagog2.classList.add(classname);
+
+    } else if(paedagog3.innerHTML == "") {
+        paedagog3.innerHTML = "&nbsp;&nbsp;" + selectedpaedagog.getInitials() + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        paedagog3.appendChild(fjernKnap);
+        paedagog3.classList.add(classname);
+    }
+    //check paa at pade ikke allereden er der
+
+    //initialer = "";
+    //removeSelection(selectedpaedagog);
+    //selectedpaedagog = null;
+
+}
+
+function removeSelection(paeda) {
+    let index = workers.findIndex((elem) => { return elem === paeda});
+    let fieldname = "grid-paedagog" + (index+1);
+    document.getElementById(fieldname).classList.remove('paedaclicked');
+    let classname = "peda" + (index+1);
+    document.getElementById(fieldname).classList.add(classname);
+    //set initialer til ""
+    selectedpaedagog = null;
+
+}
+function fjernPaedagog(parent, element) {
+    console.log("Deleting button");
+    if (selectedpaedagog != null) {
+        initialer = "";
+        selectedpaedagog = null;
+    }
+    parent.removeChild(element);
+    parent.innerHTML = "";
+
+}
+
+function findclassname(paeda) {
+    let index = workers.findIndex((elem) => { return elem === paeda});
+    let fieldname = "grid-paedagog" + (index+1);
+    document.getElementById(fieldname).classList.remove('paedaclicked');
+    let classname = "peda" + (index+1);
+    return classname;
+}
