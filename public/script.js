@@ -1,10 +1,19 @@
-let initialer = "";
+let currentAction;
+let id_blaeksprutte;
+let initialer_blaeksprutte = "";
+let blaeksprutteFeltClicked = false;
+let selectedPaedagog;
 
-let selectedpaedagog;
-
-let peagagogfelt;
 
 let workers = new Array(10);
+
+
+let selectionButtons = document.getElementById("grid-knapper").children;
+let timeslots = document.getElementsByClassName("felter");
+// "felter" skal aendres ved integration til blaekspriuttefelter eller ngoet
+let paedagogbuttons = document.getElementsByClassName("blaeksprutteVindue");
+console.log("Antal paedagogelementer " + paedagogbuttons.length);
+
 
 class Paedagog {
     constructor(name, initials) {
@@ -92,14 +101,6 @@ function placerepaedagog(element) {
         element.classList.add('paedaclicked');
         element.classList.remove(classname);
     }
-    //TODO slippery when wet
-
-
-
-    //REGEX
-    initialer = element.children[2].innerHTML; //TODO delete
-
-
 
 }
 
